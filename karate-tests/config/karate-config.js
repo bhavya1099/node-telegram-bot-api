@@ -12,8 +12,8 @@ function fn() {
   envVars['karate.env'] = karate.env;
   const config = {
       karate: {
-          properties: {...envVars
-          //,additionalProperty: 'value'
+          properties: {...envVars,
+          //additionalProperty: 'value'
           },
       }
   };
