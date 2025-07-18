@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"country_get[1:18]","start":1752828903621,"end":1752828903640,"title":"country_get[1:18] 14:25:03.621-14:25:03.640 Validate response for GET \/country API - Success Case"},{"id":2,"group":1,"content":"country_get[2.1:51]","start":1752828903644,"end":1752828903650,"title":"country_get[2.1:51] 14:25:03.644-14:25:03.650 Validate error cases for GET \/country API","className":"failed"},{"id":3,"group":1,"content":"country_get[2.2:52]","start":1752828903653,"end":1752828903659,"title":"country_get[2.2:52] 14:25:03.653-14:25:03.659 Validate error cases for GET \/country API","className":"failed"},{"id":4,"group":1,"content":"country_id_get[1:21]","start":1752828903722,"end":1752828903734,"title":"country_id_get[1:21] 14:25:03.722-14:25:03.734 Get country by valid ID"},{"id":5,"group":1,"content":"country_id_get[2.1:50]","start":1752828903737,"end":1752828903743,"title":"country_id_get[2.1:50] 14:25:03.737-14:25:03.743 Get country by invalid ID","className":"failed"},{"id":6,"group":1,"content":"country_id_get[2.2:51]","start":1752828903746,"end":1752828903752,"title":"country_id_get[2.2:51] 14:25:03.746-14:25:03.752 Get country by invalid ID","className":"failed"},{"id":7,"group":1,"content":"country_id_get[2.3:52]","start":1752828903755,"end":1752828903761,"title":"country_id_get[2.3:52] 14:25:03.755-14:25:03.761 Get country by invalid ID","className":"failed"},{"id":8,"group":1,"content":"country_id_get[3.1:64]","start":1752828903764,"end":1752828903771,"title":"country_id_get[3.1:64] 14:25:03.764-14:25:03.771 Missing required headers","className":"failed"},{"id":9,"group":1,"content":"country_id_get[4.1:76]","start":1752828903773,"end":1752828903780,"title":"country_id_get[4.1:76] 14:25:03.773-14:25:03.780 Valid request without app-identifier","className":"failed"},{"id":10,"group":1,"content":"country_id_get[5.1:88]","start":1752828903783,"end":1752828903790,"title":"country_id_get[5.1:88] 14:25:03.783-14:25:03.790 Valid request without customer-secret-key","className":"failed"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
