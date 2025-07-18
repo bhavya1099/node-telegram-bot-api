@@ -10,6 +10,8 @@
 # 
 
 roost_feedback [17/07/2025, 5:57:22 PM]:enhance the test case\n
+
+roost_feedback [18/07/2025, 11:47:41 AM]:enhance the feature file\n\n
 */
 
 // ********RoostGPT********
@@ -32,7 +34,7 @@ Scenario: Validate successful response for GET /country
     And match each response.data.countries[*].name == '#string'
     And match each response.data.countries[*].code == '#string'
     And match each response.data.countries[*].default_currency == '#string'
-    And match each response.data.countries[*].is_active == '#number'
+    And match each response.data.countries[*].is_active == '#boolean'
     And match each response.data.countries[*].app_id == '#number'
     And match each response.data.countries[*].customer_id == '#number'
     And match each response.data.countries[*].created_by == '#number'
@@ -43,6 +45,8 @@ Scenario: Validate successful response for GET /country
     And match response.error_info == '#string'
     And match response.data.countries != '#null'
     And match response.data != '#null'
+    And match response.data.countries[*].name != '#null'
+    And match response.data.countries[*].default_currency != '#null'
 
 Scenario Outline: Validate response with invalid/missing headers for GET /country
     Given headers { "app-identifier": "<app_identifier>", "customer-secret-key": "<customer_secret_key>" }
@@ -50,6 +54,7 @@ Scenario Outline: Validate response with invalid/missing headers for GET /countr
     When method GET
     Then status <expected_status>
     And match response.error_info == '#string'
+    And match response.error_info != '#null'
     Examples:
       | app_identifier     | customer_secret_key    | expected_status |
       | null               | null                   | 400             |
