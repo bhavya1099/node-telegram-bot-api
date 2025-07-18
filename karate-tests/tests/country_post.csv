@@ -1,0 +1,3 @@
+name,code,currencies,default_currency,is_active,app_identifier,customer_secret_key
+"India","IND","['INR', 'USD', 'EURO']","INR","1","d645d2b40811f5672c93794d8622da45588f32cdb2ed85336475bf","12546580645c21b8a3529680f455f715b6b6829da8976bdfd2e9d5"
+"USA","USA","['USD']","USD","1","d645d2b40811f5662c93794d8622da45588f32cdb2ed85336475bf","12546580645c21b8a3524680f455f725b6b6829da8976bdfd2e9d5"
