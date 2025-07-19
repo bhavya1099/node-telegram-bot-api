@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="res/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="res/karate-report.css" type="text/css"/>
+    <link rel="shortcut icon" href="favicon.ico"/>
+    <script type="text/javascript" src="res/jquery.min.js"></script>
+    <script type="text/javascript" src="res/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="res/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="res/bootstrap.min.js"></script>
+    <script type="text/javascript" src="res/karate-report.js"></script>
+    <script type="text/javascript" src="res/Resemble.js"></script>
+    <script>
+!function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+posthog.init('phc_M6fKk3dSX9HjglkqPSybauGas45NINb7EgsPGU8N9g1',{
+  api_host:'https://app.posthog.com',
+  persistence:'localStorage',
+  autocapture:false,
+  capture_pageview:false,
+  api_transport:'sendBeacon',
+  loaded: function(posthog) { 
+    posthog.capture("report_feature",{distinct_id:"c3141f84-0288-466f-9ed2-c19f4d0933a4",karate_version:"1.5.1",karate_meta:null});
+  }
+});
+</script>
+
+    <title>country_id_get</title>
+  </head>
+  <body>
+    <div id="root-container">
+      <div id="leftnav">
+        
+        <div>
+  <div class="nav-logo">
+    <a href="https://karatelabs.io">
+      <img src="karate-labs-logo-ring.svg" alt="Karate Labs"/>
+    </a>
+    <div class="nav-count">
+      <div id="nav-pass" class="bg-success">7</div>
+      <div id="nav-fail" class="bg-danger">0</div>
+    </div>
+  </div>
+  <div id="nav-env">
+    <div></div>
+  </div>
+  <div id="nav-type">
+    <div>Scenarios</div>
+  </div>
+  <div id="nav-date">
+    <div>2025-07-19 03:38:54 pm</div>
+  </div>
+</div>
+
+        <div class="nav-container">
+          <div class="nav-item passed">
+            <a href="#[1:23]"><span>[1:23]</span> <span>Get country by valid ID</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[2.1:55]"><span>[2.1:55]</span> <span>Get country by invalid ID</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[2.2:56]"><span>[2.2:56]</span> <span>Get country by invalid ID</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[2.3:57]"><span>[2.3:57]</span> <span>Get country by invalid ID</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[3.1:70]"><span>[3.1:70]</span> <span>Missing required headers</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[4.1:83]"><span>[4.1:83]</span> <span>Valid request without app-identifier</span></a>
+          </div>
+          <div class="nav-item passed">
+            <a href="#[5.1:96]"><span>[5.1:96]</span> <span>Valid request without customer-secret-key</span></a>
+          </div>
+        </div>
+      </div>
+      <div id="content">
+        <div class="page-heading alert alert-primary">
+          <a href="karate-summary.html">Summary</a><span class="feature-label">|</span>
+          <a href="karate-tags.html">Tags</a><span class="feature-label">|</span>
+          <span class="feature-label">Feature:</span>
+          <span class="feature-path">country_id_get.feature</span><span class="feature-label">|</span>
+          <span class="feature-name">Get Country by ID</span>
+          <span class="feature-description">Validate the endpoints for retrieving country information by ID with various scenarios</span>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[1:23]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[1:23]</span>
+                <span class="scenario-name">Get country by valid ID</span>
+                <span>&quot;&quot;&quot;
+    Given path &#39;country&#39;, 32
+    When method GET
+    Then status 200
+    And match response.status == &#39;success&#39;
+    And match response.message == &#39;Data fetched successfully&#39;
+    And match response.data.country.id == 32
+    And match response.data.country.name == &#39;#? _ == null || typeof _ == &quot;string&quot;&#39;
+    And match response.data.country.code == &#39;USA&#39;
+    And match response.data.country.default_currency == &#39;USD&#39;
+    And match response.data.country.is_active == 1
+    And match response.data.country.app_id == 62
+    And match response.data.country.customer_id == 48
+    And match response.data.country.created_by == 0
+    And match response.data.country.updated_by == 0
+    And match response.data.country.created_at == &#39;#string&#39;
+    And match response.data.country.updated_at == &#39;#string&#39;
+    And match response.data.country.currencies == &#39;#[]&#39;
+    And match response.error_info == &#39;#? _ == null || typeof _ == &quot;string&quot;&#39;
+    &quot;&quot;&quot;</span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>0</span>
+            </div>
+          </div>
+          
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="0.23">
+      <div class="step-ref passed">23</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>no steps executed</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="0.23">15:38:54.230 set envVars for key: URL_BASE  with  undefined 
+</div>   
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[2.1:55]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[2.1:55]</span>
+                <span class="scenario-name">Get country by invalid ID</span>
+                <span>&quot;&quot;&quot;
+    Given path &#39;country&#39;, &lt;id&gt;
+    When method GET
+    Then status != 200
+    And match response.error.code == &#39;#number&#39;
+    And match response.error.message == &#39;#string&#39;
+    &quot;&quot;&quot;</span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>0</span>
+            </div>
+          </div>
+          
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="1.55">
+      <div class="step-ref passed">55</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>no steps executed</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="1.55">15:38:54.243 set envVars for key: URL_BASE  with  undefined 
+</div>   
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[2.2:56]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[2.2:56]</span>
+                <span class="scenario-name">Get country by invalid ID</span>
+                <span>&quot;&quot;&quot;
+    Given path &#39;country&#39;, &lt;id&gt;
+    When method GET
+    Then status != 200
+    And match response.error.code == &#39;#number&#39;
+    And match response.error.message == &#39;#string&#39;
+    &quot;&quot;&quot;</span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>0</span>
+            </div>
+          </div>
+          
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="2.56">
+      <div class="step-ref passed">56</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>no steps executed</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="2.56">15:38:54.253 set envVars for key: URL_BASE  with  undefined 
+</div>   
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[2.3:57]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[2.3:57]</span>
+                <span class="scenario-name">Get country by invalid ID</span>
+                <span>&quot;&quot;&quot;
+    Given path &#39;country&#39;, &lt;id&gt;
+    When method GET
+    Then status != 200
+    And match response.error.code == &#39;#number&#39;
+    And match response.error.message == &#39;#string&#39;
+    &quot;&quot;&quot;</span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>0</span>
+            </div>
+          </div>
+          
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="3.57">
+      <div class="step-ref passed">57</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>no steps executed</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="3.57">15:38:54.263 set envVars for key: URL_BASE  with  undefined 
+</div>   
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[3.1:70]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[3.1:70]</span>
+                <span class="scenario-name">Missing required headers</span>
+                <span>&quot;&quot;&quot;
+    * configure headers = {}
+    Given path &#39;country&#39;, &lt;id&gt;
+    When method GET
+    Then status != 200
+    And match response.error.code == &#39;#number&#39;
+    And match response.error.message == &#39;#string&#39;
+    &quot;&quot;&quot;</span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>0</span>
+            </div>
+          </div>
+          
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="1.70">
+      <div class="step-ref passed">70</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>no steps executed</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="1.70">15:38:54.268 set envVars for key: URL_BASE  with  undefined 
+</div>   
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[4.1:83]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[4.1:83]</span>
+                <span class="scenario-name">Valid request without app-identifier</span>
+                <span>&quot;&quot;&quot;
+    * header customer-secret-key = &#39;12546580645c21b8a3529680f455f715b6b6829da8976bdfd2e9d51181fe&#39;
+    Given path &#39;country&#39;, &lt;id&gt;
+    When method GET
+    Then status != 200
+    And match response.error.code == &#39;#number&#39;
+    And match response.error.message == &#39;#string&#39;
+    &quot;&quot;&quot;</span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>0</span>
+            </div>
+          </div>
+          
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="1.83">
+      <div class="step-ref passed">83</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>no steps executed</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="1.83">15:38:54.276 set envVars for key: URL_BASE  with  undefined 
+</div>   
+
+  
+
+</div>
+</div>
+        </div>
+        <div class="scenario">
+          <div class="scenario-heading" id="[5.1:96]">
+            <div class="heading-container">
+              <div class="scenario-tags">
+                
+              </div>
+              <div class="scenario-keyword">
+                Scenario: <span>[5.1:96]</span>
+                <span class="scenario-name">Valid request without customer-secret-key</span>
+                <span>&quot;&quot;&quot;
+    * header app-identifier = &#39;d645d2b40811f5672c93794d8622da45588f32cdb2ed85336475bf479e5d&#39;
+    Given path &#39;country&#39;, &lt;id&gt;
+    When method GET
+    Then status != 200
+    And match response.error.code == &#39;#number&#39;
+    And match response.error.message == &#39;#string&#39;
+    &quot;&quot;&quot;</span>
+              </div>
+            </div>
+            <div class="scenario-time passed">
+              <span>ms:</span>&nbsp;<span>0</span>
+            </div>
+          </div>
+          
+          <div><div>
+  
+
+  
+
+  <div class="step-row">
+    <div class="step-container" id="1.96">
+      <div class="step-ref passed">96</div>
+      
+      <div class="step-cell passed">
+        <span>*</span>&nbsp;<span>no steps executed</span>
+      </div>
+    </div>
+    <div class="time-cell passed">0</div>
+  </div>
+
+   
+  
+  
+
+  
+
+  <div class="preformatted" data-parent="1.96">15:38:54.284 set envVars for key: URL_BASE  with  undefined 
+</div>   
+
+  
+
+</div>
+</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
