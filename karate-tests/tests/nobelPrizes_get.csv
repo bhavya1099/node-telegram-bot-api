@@ -1,0 +1,5 @@
+offset,limit,sort,nobelPrizeYear,yearTo,nobelPrizeCategory,format,csvLang
+"1","10","asc","1995","2000","chemistry","json","en"
+"20","5","desc","1980","1990","peace","json","en"
+"1","5","asc","2000","2000","chemistry","json","en"
+"20","10","desc","1989","1990","peace","json","en"
